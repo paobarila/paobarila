@@ -1,0 +1,26 @@
+header{
+    height: 12vh;
+    background-color:rgb(73, 68, 68);
+    color:white
+}
+main{
+    min-height:78vh;
+    background-image: url(https://wallpapers.com/images/high/hogwarts-marauders-map-5vtoj3m8o1nm7gva.jpg)!important;
+}
+#contenedor-datos{
+width: 100%;
+display: flex;
+flex-wrap: nowrap;
+justify-content: space-between;
+}
+
+footer{
+    min-height:10vh;
+    background-color:rgb(73, 68, 68);
+color:white
+}
+.botonss{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

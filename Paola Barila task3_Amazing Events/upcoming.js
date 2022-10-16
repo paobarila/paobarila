@@ -3,7 +3,7 @@ let contenedorDatos = document.getElementById("contenedor-datos")
 let checksBox = document.getElementById("checks")
 let buscador = document.getElementById("buscador")
 
-let fechas = data.currentDay
+let fechas = data.currentDate
 let eventos = data.events
 
 

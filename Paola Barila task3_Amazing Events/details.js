@@ -1,13 +1,21 @@
+var URI = "https://amazing-events.herokuapp.com/api/events"
+console.log(URI)
 let cadenaParametros = location.search
 let parametros = new URLSearchParams(cadenaParametros)
 let id = parametros.get("id")
-let eventos = data.events
-
+let eventos = []
+traerDatos(URI)
 let contenedorDatos = document.getElementById("contenedor-datos")
 
-let eventoEncontrado = eventos.find(evento => evento._id == id)
+function traerDatos(URI){
+  fetch(URI)
+   .then(response =>response.json())
+   .then(data => {
+    eventos =data.events
+    let eventoEncontrado = eventos.find(evento => evento._id == id)
 pintarDetalle(eventoEncontrado)
-
+  })
+}
 
 function pintarDetalle(evento) {
   let card = document.createElement('div')

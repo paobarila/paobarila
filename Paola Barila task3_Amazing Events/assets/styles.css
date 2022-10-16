@@ -10,6 +10,11 @@
     margin-left: 2rem;
     margin-right: 2rem;
 }
+main{
+    background-image: url(https://i.pinimg.com/564x/ce/ac/9f/ceac9f8a09d460d8bd0ceaa46ef2bcda.jpg)
+
+ }
+
 .caja{
     min-height: 63vh;
     display: flex;
