@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Details</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="/assets/styles.css">
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <nav class="navbar navbar-light bg-light">
+        <div class="container">
+          <a class="navbar-brand" href="#">
+            <img src="/assets/images/Logo_Amazing_Events2.png" alt="logo" width="80" height="60">
+          </a>
+        </div>
+      </nav><a class="navbar-brand" href="#"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 ms-lg-auto fs-5 gap-3">
+          <li class="nav-item">
+            <a class="nav-link shadow p-3 mb-5 bg-bodyrounded" aria-current="page" href="./index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link shadow p-3 mb-5 bg-bodyrounded" href="./upcoming.html">Upcoming Events</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link shadow p-3 mb-5 bg-bodyrounded" href="./past.html">Past Events</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link shadow p-3 mb-5 bg-bodyrounded" href="./contact.html">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link shadow p-3 mb-5 bg-bodyrounded" href="stats.html">Stats</a>
+          </li>
+        </ul>
+  </nav>
+  <main class="caja">
+    <div>
+    <div v-for= "evento in eventos" class="row p-3 gap-5 justify-content-center" >
+      <div class="card" style="width: 18rem;">
+        <img :src="evento.image" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h3 class="card-title">{{evento.name}}</h3>
+          <p class="card-text">Categoría: {{evento.category}}</p>
+          <p class="card-text">{{evento.description}}</p>
+          <p class = "card- text">{{evento.price}}</p>
+          <a href="#" class="btn btn-primary">Buy Now</a>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+  </main>
+  <footer>
+    <div>
+      <i class="bi bi-instagram fs-4 m-3"></i>
+      <i class="bi bi-facebook fs-4 m-2"></i>
+      <i class="bi bi-whatsapp fs-4 m-2"></i>
+    </div>
+    <div>
+      <p>Developed By: Paola B. Barila &copy; All rigths reserved 2022</p>
+      <p>San Miguel, Buenos Aires, Argentina.</p>
+    </div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+    crossorigin="anonymous"></script>
+  <script src="./details.js"></script>
+</body>
+
+</html>
