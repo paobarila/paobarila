@@ -33,6 +33,7 @@ createApp({
         traerDatos() {
             fetch(this.urlApi).then(response => response.json())
                 .then(data => {
+
                     if (document.title == "Amazing Events") {
                         this.eventos = data.events
                     } else if (document.title == "Upcoming Events") {
@@ -51,20 +52,65 @@ createApp({
                                 (parseInt(b.assistance) * 100) / parseInt(b.capacity) -
                                 (parseInt(a.assistance) * 100) / parseInt(a.capacity)
                             )
-                            })//cierra sort
-                      
+                        })
+                        console.log(this.estadisticas)
                     }// cierra stats
-                
+
                     this.eventos.forEach(evento => {
                         if (!this.categorias.includes(evento.category)) {
                             this.categorias.push(evento.category)
                         }
                     });
                     this.backUpEventos = this.eventos
-                });//cierra then data
-            },
-        },
-  
+                });//cierra data
+
+            this.cargarEstadisticas(this.estadisticasPorCategorias(this.eventosFuturos), this.estadisticas.estadisticasUp);
+            this.cargarEstadisticas(this.estadisticasPorCategorias(this.eventosPasados), this.estadisticas.estadisticasPast)
+        },//traer datos
+        cargarEstadisticas(estadistica, contenedor) {
+            let arrayCategorias = estadistica.categoriasFiltradas;
+            let arrayRevenues = estadistica.revenues;
+            let arrayPercentajes = estadistica.percentages;
+            arrayCategorias.forEach((categoria, i) => {
+                contenedor.push({
+                    category: categoria,
+                    revenue: arrayRevenues[i],
+                    percentage: arrayPercentajes[i],
+                });
+            });
+        },//cierra cargar estad
+        categoriasStatistics(eventos) {
+            let categorias = [];
+            eventos.forEach((evento) => {
+                if (!categorias.includes(evento.category)) {
+                    categorias.push(evento.category);
+                }
+            });
+            return categorias;
+        },//cierra categ Sta
+        eventComparator(evento) {
+            return evento.assistance
+                ? (evento.assistance / evento.capacity) * 100
+                : (evento.estimate / evento.capacity) * 100;
+        },//cierra comparador
+        estadisticasPorCategorias(eventos) {
+            let categoriasFiltradas = this.categoriasStatistics(eventos);
+            let revenues = [];
+            let percentages = [];
+            categoriasFiltradas.forEach((categoria) => {
+                let filtradosCategoria = data.events.filter((evento) => evento.category == categoria);
+                revenues.push(filtradosCategoria.map((evento) => evento.price * (evento.assistance ? evento.assistance : evento.estimate))
+                    .reduce((accu, ele) => accu + ele)
+                    .toLocaleString());
+                percentages.push((filtradosCategoria.map((evento) => this.eventComparator(evento).reduce((accu, ele) => accu + ele) / filtradosCategoria.length).toFixed(2).toLocaleString())
+                });
+            return {
+                categoriasFiltradas,
+                revenues,
+                percentages,
+            };
+
+        },//cierra estadisticas por categ
         computed: {
             superFiltro() {
                 let filtro1 =
@@ -82,5 +128,4 @@ createApp({
 
             },
         },
-    
     }).mount('#app')

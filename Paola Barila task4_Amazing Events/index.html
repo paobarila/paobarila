@@ -73,9 +73,9 @@
     </div>
     <header>
       {{superFiltro}}
-      <div class="botons">
+      <div class="botons">  
       <div v-for="categoria in categorias" class="form-check form-check-inline mt-5 mb-5">
-        <input v-model="eventosBuscados" class="form-check-input" type="checkbox" :id="inlineCheckbox1" :value="categoria">
+        <input v-model="eventosBuscados" class="form-check-input" type="checkbox" :id="categoria" :value="categoria">
         <label class="form-check-label" :for="categoria">{{categoria}}</label>
       </div>
 
@@ -87,16 +87,16 @@
     </header>
     
     <main>
-    <div>
+    <div class="d-flex justify-content-center flex-wrap gap-3 p-3 ">
       <p v-if="eventos.length == 0">Try again whit another search</p>
     <div v-for= "evento in eventos" class="row p-3 gap-5 justify-content-center" >
-      <div class="card" style="width: 18rem;">
+      <div class="card" style="width: 15rem; height:25rem">
         <img :src="evento.image" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">{{evento.name}}</h5>
           <p class="card-text">Fecha: {{evento.date}}</p>
           <p class="card-text">{{evento.description}}</p>
-          <a :href="'./details.html?_id ='+evento._id" class="btn btn-primary">More Info</a>
+          <a :href="'./details.html?_id='+evento._id" class="btn btn-primary position-absolute bottom-0 mb-2 end-1">More Info</a>
         </div>
       </div>
       

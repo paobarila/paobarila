@@ -5,10 +5,12 @@
 
 }
 .botons{
+    max-height:5rem;
     display: flex;
     justify-content: space-between;
     margin-left: 2rem;
     margin-right: 2rem;
+    margin-bottom: 1rem;
 }
 main{
     background-image: url(https://i.pinimg.com/564x/ce/ac/9f/ceac9f8a09d460d8bd0ceaa46ef2bcda.jpg)
@@ -46,7 +48,7 @@ footer{
     padding-top: 1rem;
     display: flex;
     justify-content: space-between;
-    height: 15vh;
+   max-height: 15vh;
     background-color: darkslategrey;
     color: white;
     font-style: oblique;

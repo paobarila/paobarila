@@ -21,7 +21,7 @@ function pintarDetalle(evento) {
   let card = document.createElement('div')
   card.className = "card"
   //card.style.width = ""
-  card.innerHTML = `<div class="row g-0">
+  card.innerHTML = `<div class=class="card mb-3" style="max-width:45rem;">
     <div class="col-md-4">
       <img src="${evento.image}"class="img-fluid rounded-start" alt="evento" id="altoimg">
     </div>

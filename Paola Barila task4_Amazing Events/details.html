@@ -12,12 +12,14 @@
 </head>
 
 <body>
+  <div id="app">
+   
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
       <nav class="navbar navbar-light bg-light">
         <div class="container">
           <a class="navbar-brand" href="#">
-            <img src="/assets/images/Logo_Amazing_Events2.png" alt="logo" width="80" height="60">
+            <img src="/assets/images/Logo_Amazing_Events2.png" alt="logo" width="110" height="65">
           </a>
         </div>
       </nav><a class="navbar-brand" href="#"></a>
@@ -31,7 +33,7 @@
             <a class="nav-link shadow p-3 mb-5 bg-bodyrounded" aria-current="page" href="./index.html">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link shadow p-3 mb-5 bg-bodyrounded" href="./upcoming.html">Upcoming Events</a>
+            <a class="nav-link active shadow p-3 mb-5 bg-bodyrounded" href="./upcoming.html">Upcoming Events</a>
           </li>
           <li class="nav-item">
             <a class="nav-link shadow p-3 mb-5 bg-bodyrounded" href="./past.html">Past Events</a>
@@ -40,42 +42,83 @@
             <a class="nav-link shadow p-3 mb-5 bg-bodyrounded" href="./contact.html">Contact</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link shadow p-3 mb-5 bg-bodyrounded" href="stats.html">Stats</a>
+            <a class="nav-link shadow p-3 mb-5 bg-bodyrounded" href="./stats.html">Stats</a>
           </li>
         </ul>
+
+      </div>
+    </div>
   </nav>
-  <main class="caja">
-    <div>
-    <div v-for= "evento in eventos" class="row p-3 gap-5 justify-content-center" >
-      <div class="card" style="width: 18rem;">
-        <img :src="evento.image" class="card-img-top" alt="...">
+  
+ <main class="caja p-3">
+  <div class="card mb-3 " style="max-width: 45rem;">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img :src="evento.image" class="img-fluid rounded-center" alt="...">
+      </div>
+      <div class="col-md-8">
         <div class="card-body">
-          <h3 class="card-title">{{evento.name}}</h3>
-          <p class="card-text">Categoría: {{evento.category}}</p>
+          <h5 class="card-title">{{evento.name}}</h5>
           <p class="card-text">{{evento.description}}</p>
-          <p class = "card- text">{{evento.price}}</p>
-          <a href="#" class="btn btn-primary">Buy Now</a>
+        <p class="card-text2"> Place: {{evento.place}} Capacity: {{evento.capacity}}</p>
+        <h5 class="card-price text-end"> Price:$ {{evento.price}}</h5>
+        <a href="#" class="btn btn-primary">BUY NOW</a>
         </div>
       </div>
     </div>
-    
   </div>
+  
+  <!--<div class="card mb-4 d-flex justify-content-center m-auto" style="max-width:45rem;">
+    <div class="col-md-4 ">
+      <img :src="evento.image"class="img-fluid rounded-start" alt="evento" id="altoimg">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">{{evento.name}}</h5>
+        <p class="card-text">{{evento.description}}</p>
+        <p class="card-text2"> Place: {{evento.place}} Capacity: {{evento.capacity}}</p>
+        <h5 class="card-price text-end"> Price:$ {{evento.price}}</h5>
+        <a href="#" class="btn btn-primary">BUY NOW</a>
+      </div>-->
+
+
+   <!-- <div class="card mb-3" style="max-width:45rem;">
+    <div class="row p-3 gap-5 justify-content-center" >
+      <div class="card" style="width: 18rem;">
+        <img :src="evento.image" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{evento.name}}</h5>
+          <p class="card-text">Fecha: {{evento.date}}</p>
+          <p class="card-text">{{evento.description}}</p>
+          <a href=".." class="btn btn-primary">More Info</a>
+        </div>
+      </div>
+      
+    </div>
+    
+  </div>-->
+   
   </main>
   <footer>
     <div>
-      <i class="bi bi-instagram fs-4 m-3"></i>
+      <i class="bi bi-instagram fs-4 m-2"></i>
       <i class="bi bi-facebook fs-4 m-2"></i>
       <i class="bi bi-whatsapp fs-4 m-2"></i>
     </div>
+     
     <div>
       <p>Developed By: Paola B. Barila &copy; All rigths reserved 2022</p>
       <p>San Miguel, Buenos Aires, Argentina.</p>
     </div>
   </footer>
+  </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
-    crossorigin="anonymous"></script>
-  <script src="./details.js"></script>
-</body>
+  integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+  crossorigin="anonymous"></script>
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script src="./main.js"></script>
+
+  </body>
+
 
 </html>
